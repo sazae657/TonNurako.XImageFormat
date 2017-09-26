@@ -1,0 +1,3 @@
+[submodule "X11/TonNurako"]
+	path = X11/TonNurako
+	url = git@github.com:sazae657/TonNurako.git

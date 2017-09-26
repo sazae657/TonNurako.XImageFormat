@@ -1,0 +1,48 @@
+﻿<Window x:Class="XImageViewerWPF.PAMOptions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XImageViewerWPF"
+        mc:Ignorable="d"
+        Title="PAM" Height="341.92" Width="399.936" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <local:G2BConverter x:Key="G2B" />
+        <local:N2BConverter x:Key="T2B" />
+    </Window.Resources>
+    <Grid Margin="0,0,-0.333,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="382*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="167*"/>
+            <RowDefinition Height="121*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="形式" Margin="1,2,1,8.333" Grid.Column="1" VerticalContentAlignment="Stretch" Grid.Row="1">
+            <StackPanel x:Name="FileFormatGroup" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <RadioButton Content="BLACKANDWHITE" IsChecked="{Binding Value, ConverterParameter=BLACKANDWHITE,Converter={StaticResource T2B}}"/>
+                <RadioButton Content="GRAYSCALE" IsChecked="{Binding Value, ConverterParameter=GRAYSCALE, Converter={StaticResource T2B}}"/>
+                <RadioButton Content="RGB" IsChecked="{Binding Value, ConverterParameter=RGB, Converter={StaticResource T2B}}"/>
+
+                <RadioButton Content="BLACKANDWHITE_ALPHA" IsChecked="{Binding Value, ConverterParameter=BLACKANDWHITE_ALPHA,Converter={StaticResource T2B}}"/>
+                <RadioButton Content="GRAYSCALE_ALPHA" IsChecked="{Binding Value, ConverterParameter=GRAYSCALE_ALPHA, Converter={StaticResource T2B}}"/>
+                <RadioButton Content="RGB_ALPHA" IsChecked="{Binding Value, ConverterParameter=RGB_ALPHA, Converter={StaticResource T2B}}"/>
+
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="書き出すﾁｬﾈﾙ" Margin="1,9.667,1,10" VerticalContentAlignment="Stretch" Grid.Row="2" Grid.Column="1">
+            <StackPanel x:Name="RadioButtosGroup" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <RadioButton Content="R" IsChecked="{Binding Value, ConverterParameter=R,Converter={StaticResource G2B}}"/>
+                <RadioButton Content="G" IsChecked="{Binding Value, ConverterParameter=G,Converter={StaticResource G2B}}"/>
+                <RadioButton Content="B" IsChecked="{Binding Value, ConverterParameter=B,Converter={StaticResource G2B}}"/>
+                <RadioButton Content="A" IsChecked="{Binding Value, ConverterParameter=A,Converter={StaticResource G2B}}"/>
+            </StackPanel>
+        </GroupBox>
+        <Button x:Name="Button_OK" Content="保存" HorizontalAlignment="Left" Margin="188,11,0,0" VerticalAlignment="Top" Width="75" Click="Button_OK_Click" IsDefault="True" Height="21" Grid.Column="1" Grid.Row="3"/>
+        <Button x:Name="Button_Cancel" Content="やめとく" HorizontalAlignment="Left" Margin="284,11,0,0" VerticalAlignment="Top" Width="75" Click="Button_Cancel_Click" IsCancel="True" Height="21" Grid.Column="1" Grid.Row="3"/>
+    </Grid>
+</Window>
