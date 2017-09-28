@@ -1,4 +1,2 @@
 language: csharp
-solution: TonNurako.sln
-script:
-  - xbuild ./TonNurako.XImageFormat.sln
+solution: TonNurako.XImageFormat.sln

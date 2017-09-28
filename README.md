@@ -1,5 +1,9 @@
 # TonNurako.XImageFormat
 
+[![Build status](https://ci.appveyor.com/api/projects/status/1baxyx2ou6ev61mg?svg=true)](https://ci.appveyor.com/project/sazae657/tonnurako-ximageformat)
+[![Build Status](https://travis-ci.org/sazae657/TonNurako.XImageFormat.svg?branch=1.0.10)](https://travis-ci.org/sazae657/TonNurako.XImageFormat)
+
+
 X11でよく使うのにWIC/GDI+が読んでくれない画像の読み書きが出来るよ。
 
 [ﾄﾝﾇﾗｺ](https://github.com/sazae657/TonNurako)の実装方針に従い、依存関係解決が面倒くせえｻーﾄﾞﾊﾟーﾃｨーのﾗｲﾌﾞﾗﾘーは一切使用していません。

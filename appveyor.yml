@@ -1,0 +1,22 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+configuration: Release
+platform: Any CPU
+build:
+  project: ViewerWPF/XImageViewerWPF.sln
+  verbosity: minimal
+test_script:
+- ps: C:\projects\tonnurako-ximageformat\ReaderTest\bin\Release\ReaderTest.exe C:\projects\tonnurako-ximageformat\ReaderTest\Data
+artifacts:
+- path: ViewerWPF\bin\Release
+  name: TonNurako.XImageFormat
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: GbbYfz5gRKh13bjK1ng8jjFN1PpiISbzxR8ynJJOWXPrHRGEvVGjT+LQd2stdiD0
+  artifact: ViewerWPF\bin\TonNurako.XImageFormat.zip
+  draft: false
+  prerelease: false
+  on:
+    appveyor_repo_tag: true
+    
