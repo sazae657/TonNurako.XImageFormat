@@ -1,0 +1,8 @@
+
+version: "{build}"
+platform:
+  - Any CPU
+configuration:
+  - Release
+build:
+  project: TonNurako.XImageFormat.sln
