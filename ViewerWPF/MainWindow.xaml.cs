@@ -254,7 +254,7 @@ namespace XImageViewerWPF {
             }
         }
 
-        private TonNurako.XImageFormat.Xi.ぉ[] Qonvert(BitmapSource bmp) {
+        private TonNurako.XImageFormat.Xi.ぉ[] QonvertNA(BitmapSource bmp) {
             if (bmp.Format != PixelFormats.Bgra32) {
                 bmp = new FormatConvertedBitmap(bmp, PixelFormats.Bgra32, null, 0);
             }
@@ -267,13 +267,29 @@ namespace XImageViewerWPF {
             var conv = new TonNurako.XImageFormat.Xi.ぉ[bmp.PixelWidth * bmp.PixelHeight];
             int ro = 0;
             for (int i = 0; i < size; i += ppi) {
-                if (pixels[i + 3] == 0) {
-                    conv[ro] = TonNurako.XImageFormat.Xi.ぉ.None;
-                }
-                else {
-                    conv[ro] = new TonNurako.XImageFormat.Xi.ぉ(
-                        pixels[i + 2], pixels[i + 1], pixels[i], 0xff);
-                }
+                conv[ro] = new TonNurako.XImageFormat.Xi.ぉ(
+                    pixels[i + 2], pixels[i + 1], pixels[i], 0xff);
+                ro++;
+            }
+
+            return conv;
+        }
+
+        private TonNurako.XImageFormat.Xi.ぉ[] QonvertA(BitmapSource bmp) {
+            if (bmp.Format != PixelFormats.Bgra32) {
+                bmp = new FormatConvertedBitmap(bmp, PixelFormats.Bgra32, null, 0);
+            }
+
+            int ppi = ((bmp.Format.BitsPerPixel + 7) / 8);
+            int stride = bmp.PixelWidth * ppi;
+            int size = bmp.PixelHeight * stride;
+            byte[] pixels = new byte[size];
+            bmp.CopyPixels(pixels, stride, 0);
+            var conv = new TonNurako.XImageFormat.Xi.ぉ[bmp.PixelWidth * bmp.PixelHeight];
+            int ro = 0;
+            for (int i = 0; i < size; i += ppi) {
+                conv[ro] = new TonNurako.XImageFormat.Xi.ぉ(
+                    pixels[i + 2], pixels[i + 1], pixels[i], pixels[i + 3]);
                 ro++;
             }
 
@@ -284,7 +300,7 @@ namespace XImageViewerWPF {
             await SaveImageAsync("XPM|*.xpm", "xpm", (fn) => 
             {
                 var bm = (BitmapSource)ImageVox.Source;
-                var xpm = TonNurako.XImageFormat.Xpm.Fromぉ(bm.PixelWidth, bm.PixelHeight, Qonvert(bm));
+                var xpm = TonNurako.XImageFormat.Xpm.Fromぉ(bm.PixelWidth, bm.PixelHeight, QonvertNA(bm));
                 xpm.Name = System.IO.Path.GetFileNameWithoutExtension(fn);
                 using (var s = new System.IO.FileStream(fn, System.IO.FileMode.Create)) {
                     (new TonNurako.XImageFormat.XpmWriter()).Write(s, xpm);
@@ -303,7 +319,7 @@ namespace XImageViewerWPF {
                 var bm = (BitmapSource)ImageVox.Source;               
                 var pfx = System.IO.Path.GetFileNameWithoutExtension(fn);
                 using (var s = new System.IO.FileStream(fn, System.IO.FileMode.Create)) {
-                    (new TonNurako.XImageFormat.XbmWriter()).Write(s,pfx, bm.PixelWidth, bm.PixelHeight, dialog.画素.Value, Qonvert(bm));
+                    (new TonNurako.XImageFormat.XbmWriter()).Write(s,pfx, bm.PixelWidth, bm.PixelHeight, dialog.画素.Value, QonvertNA(bm));
                 }
             });
         }
@@ -341,7 +357,7 @@ namespace XImageViewerWPF {
                 var bm = (BitmapSource)ImageVox.Source;
                 using (var s = new System.IO.FileStream(fn, System.IO.FileMode.Create)) {
                     (new TonNurako.XImageFormat.PNMWriter()).Write(
-                        s, dialog.形式.Value, dialog.ｴﾝｺーﾃﾞｨﾝｸﾞ.Value, bm.PixelWidth, bm.PixelHeight, dialog.画素.Value, Qonvert(bm));
+                        s, dialog.形式.Value, dialog.ｴﾝｺーﾃﾞｨﾝｸﾞ.Value, bm.PixelWidth, bm.PixelHeight, dialog.画素.Value, QonvertNA(bm));
                 }
 
             });
@@ -358,7 +374,7 @@ namespace XImageViewerWPF {
                 var bm = (BitmapSource)ImageVox.Source;
                 using (var s = new System.IO.FileStream(fn, System.IO.FileMode.Create)) {
                     (new TonNurako.XImageFormat.PNMWriter()).WritePAM(
-                        s, dialog.ﾇﾌﾟーﾘ.Value, bm.PixelWidth, bm.PixelHeight, dialog.画素.Value, Qonvert(bm));
+                        s, dialog.ﾇﾌﾟーﾘ.Value, bm.PixelWidth, bm.PixelHeight, dialog.画素.Value, QonvertA(bm));
                 }
             });
         }
