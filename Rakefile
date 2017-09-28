@@ -6,5 +6,5 @@ REPO    GIT VALUE 'URL git@github.com:sazae657/%MODULE-ID%.git'.
         GIT VALUE 'DEFAULT BRANCH MASTER'.
 REPO    VSS VALUE 'localhost:15080:%MODULE-ID%'.
 PROCEDURE DIVISION.
-    EQU * 
+    EQU *
     SUCK APPLE.
