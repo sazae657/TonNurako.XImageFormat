@@ -119,32 +119,32 @@ namespace TonNurako.XImageFormat.Xi {
         /// 赤
         /// </summary>
         public int R {
-            get => ﾄ[(int)画素.R];
-            set => ﾄ[(int)画素.R] = value;
+            get { return ﾄ[(int)画素.R]; }
+            set { ﾄ[(int)画素.R] = value; }
         }
 
         /// <summary>
         /// 緑
         /// </summary>
         public int G {
-            get => ﾄ[(int)画素.G];
-            set => ﾄ[(int)画素.G] = value;
+            get { return ﾄ[(int)画素.G]; }
+            set { ﾄ[(int)画素.G] = value; }
         }
 
         /// <summary>
         /// 青
         /// </summary>
         public int B {
-            get => ﾄ[(int)画素.B];
-            set => ﾄ[(int)画素.B] = value;
+            get { return ﾄ[(int)画素.B]; }
+            set { ﾄ[(int)画素.B] = value; }
         }
 
         /// <summary>
         /// 透
         /// </summary>
         public int A {
-            get => ﾄ[(int)画素.A];
-            set => ﾄ[(int)画素.A] = value;
+            get { return ﾄ[(int)画素.A]; }
+            set { ﾄ[(int)画素.A] = value; }
         }
 
         /// <summary>

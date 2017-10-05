@@ -36,7 +36,9 @@ namespace TonNurako.XImageFormat {
             /// <summary>
             /// コンス
             /// </summary>
-            public ColorRef() => Converted = false;
+            public ColorRef() {
+                Converted = false;
+            }
 
             /// <summary>
             /// 色種別
