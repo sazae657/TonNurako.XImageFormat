@@ -164,7 +164,6 @@ namespace TonNurako.XImageFormat {
 
             for (int y = 0; y < height; ++y) {
                 for (int x = 0; x < width; x += 8) {
-                    byte b = 0;
                     int bits = 8;
                     if ((width - x < 8)) {
                         bits = xpad;
