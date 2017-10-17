@@ -178,7 +178,7 @@ namespace TonNurako.XImageFormat.Xi {
         public string ToXRGB16() => $"#{R:X2}{R:X2}{G:X2}{G:X2}{B:X2}{B:X2}";
 
         /// <summary>
-        /// RGBAにパッキングして返す
+        /// RGBAにﾊﾟｯｷﾝｸﾞして返す
         /// </summary>
         /// <returns></returns>
         public int ToARGBi386() => ((A & 0xff) << 24) | ((R & 0xff) << 16) | ((G & 0xff) << 8) | (B & 0xff);
