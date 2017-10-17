@@ -34,7 +34,7 @@ namespace TonNurako.XImageFormat {
         /// </summary>
         public class ColorRef {
             /// <summary>
-            /// コンス
+            /// ｺﾝｽ
             /// </summary>
             public ColorRef() {
                 Converted = false;
@@ -107,7 +107,7 @@ namespace TonNurako.XImageFormat {
         /// <summary>
         /// 警察
         /// </summary>
-        /// <param name="zise">サイズ</param>
+        /// <param name="zise">ｻｲｽﾞ</param>
         public void Alloc(int zise) => colors = new ColorRef[zise];
 
         /// <summary>

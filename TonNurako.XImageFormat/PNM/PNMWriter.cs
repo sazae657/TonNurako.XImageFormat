@@ -181,7 +181,7 @@ namespace TonNurako.XImageFormat {
         }
 
         /// <summary>
-        /// バイナリー形式PBM書き込み
+        /// ﾊﾞｲﾅﾘー形式PBM書き込み
         /// </summary>
         /// <param name="stream"></param>
         /// <param name="width"></param>

@@ -43,7 +43,7 @@ namespace TonNurako.XImageFormat {
         /// <summary>
         /// 読み込む
         /// </summary>
-        /// <param name="path">ファイル名</param>
+        /// <param name="path">ﾌｧｲﾙ名</param>
         /// <returns>XBM</returns>
         public Xbm Load(string path) {
             var lines = new List<string>();
@@ -55,6 +55,23 @@ namespace TonNurako.XImageFormat {
                 }
             }
             return Load(System.IO.Path.GetFileNameWithoutExtension(path), lines);
+        }
+
+        /// <summary>
+        /// 読み込む
+        /// </summary>
+        /// <param name="stream">ﾑ</param>
+        /// <returns>XBM</returns>
+        public Xbm Load(string name, System.IO.Stream stream) {
+            var lines = new List<string>();
+            using (var file =
+                new System.IO.StreamReader(stream, System.Text.Encoding.UTF8)) {
+                string line = string.Empty;
+                while ((line = file.ReadLine()) != null) {
+                    lines.Add(line.Trim());
+                }
+            }
+            return Load(name, lines);
         }
 
         /// <summary>
