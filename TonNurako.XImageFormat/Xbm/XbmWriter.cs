@@ -119,7 +119,7 @@ namespace TonNurako.XImageFormat {
                     }
                     for (int i = 0; i < bits; ++i) {
                         var a = arr[po++].ほ(channel);
-                        bool k = (a == 0);
+                        bool k = (a != 0);
                         if (反転) {
                             k = !k;
                         }
