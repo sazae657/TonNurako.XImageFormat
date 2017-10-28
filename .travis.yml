@@ -1,2 +1,18 @@
 language: csharp
 solution: TonNurako.XImageFormat.sln
+
+env:
+  global:
+   - secure: "WijYuMClrVuN8jglyDITjjAAQObU83JtYZNzQsBmfnvGWjga/Ixml/Ke7V62aUqAV1lGfJFTDN4roOU6bGqq/B33ObvJjywqaE8HkcPnBVQopcKN860yehAJE+7AFJafoZSipDaUjm3ZH+gM6PEQ3a2Y1O7WakkfOHz5AlWlXcUURNqvhEmqBBEDohcS1+JR4aynUJ6KsQ3h7mZcc8k/XxYfA2Li7jdTRxl5P9qmrG6QGBql/FqvKDpi9pX1FizlEmQFf4BdCO0K3agyNJqj2oW3vIFp1472LF9xJ5pK+PI2IzimY7fO4THwo9iRx+brGyEpkI+UiMyYOi5+wMLdO4WvJU3WIKB0qAOAYFmzvmps7qdUuMphyb5NUJgrnIMaNrf3Fs7obELWrrBGS9pzZdoSK0f+Q9ocQjZ3Y8dHrr2I2Y30vjlz76NppbI7UFjzMlXN9zSx2MSreO6V0ERDcmP18NhaTKdANC93Rxcw5QF/JNFdlARw1oQprTPb7/E1fwRtfGgmdgQV05bRY7cQ6QMgRnfF0VOwRirlm57fgv4WMUXBH5CAiN5c4e55eteFewkEXqIKTqqZ9e6JHVPZkKwoUUVnjntK+FmjFhJVcqGmsSqHWh2RvauinZxWF2anrLg9qsA9uqkRAV2LYJ1jADbydOJQ31TL8tuINotnFGs="
+
+before_install:
+      - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+addons:
+  coverity_scan:
+    project:
+      name: "sazae657/TonNurako.XImageFormat"
+      description: "Build submitted via Travis CI"
+    notification_email: info@ftp.gawanative.com
+    build_command_prepend: "msbuild /t:Clean"
+    build_command:   "msbuild /t:Rebuild"
+    branch_pattern: coverity_scan
