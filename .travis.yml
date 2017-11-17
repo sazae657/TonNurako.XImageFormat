@@ -11,7 +11,7 @@ before_install:
 script:
     - nuget restore
     - msbuild /p:Configuration=Debug TonNurako.XImageFormat.sln
-    - packages/xunit.runner.console.2.3.1/tools/net452/xunit.console.exe TonNurako.XImageFormat.Test/bin/Debug/TonNurako.XImageFormat.Test.dll
+    - mono packages/xunit.runner.console.2.3.1/tools/net452/xunit.console.exe TonNurako.XImageFormat.Test/bin/Debug/TonNurako.XImageFormat.Test.dll
 
 addons:
   coverity_scan:
