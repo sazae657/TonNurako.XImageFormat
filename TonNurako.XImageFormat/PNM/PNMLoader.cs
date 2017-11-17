@@ -525,7 +525,7 @@ namespace TonNurako.XImageFormat {
         /// <returns></returns>
         private PNM.形式 形式を割り出す(byte[] d) {
             if (d[0] != 0x50) {
-                throw new Xi.およよ("Pじゃない");
+                throw new Xi.それちがう("Pじゃない");
             }
             if (d[1] == 0x46) {
                 return PNM.形式.PF;
