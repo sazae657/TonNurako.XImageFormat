@@ -1,4 +1,5 @@
 language: csharp
+dotnet: 3.1.100
 solution: TonNurako.XImageFormat.sln
 
 env:
@@ -9,9 +10,9 @@ before_install:
       - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 script:
-    - nuget restore
-    - msbuild /p:Configuration=Debug TonNurako.XImageFormat.sln
-    - mono packages/xunit.runner.console.2.3.1/tools/net452/xunit.console.exe TonNurako.XImageFormat.Test/bin/Debug/TonNurako.XImageFormat.Test.dll
+    - dotnet restore
+    - dotnet build
+    - dotnet test TonNurako.XImageFormat.Test/TonNurako.XImageFormat.Test.csproj
 
 addons:
   coverity_scan:
