@@ -6,12 +6,12 @@
 
 X11でよく使うのにWIC/GDI+が読んでくれない画像の読み書きが出来るよ。
 
-[ﾄﾝﾇﾗｺ](https://github.com/sazae657/TonNurako)の実装方針に従い、依存関係解決が面倒くせえｻーﾄﾞﾊﾟーﾃｨーのﾗｲﾌﾞﾗﾘーは一切使用していません。
+[ﾄﾝﾇﾗｺ](https://github.com/sazae657/TonNurako2)の実装方針に従い、依存関係解決が面倒くせえｻーﾄﾞﾊﾟーﾃｨーのﾗｲﾌﾞﾗﾘーは一切使用していません。
 
 ## 対応ﾌﾟﾗｯﾄﾌｫーﾑ
-Windows .NET Framework 4.6.1以降
+Windows .NET Core 3.1以降
 
-Unix系(macOS除く) Mono 4.4以降
+Unix系(macOS除く) .NET Core 3.1以降
 
 *CLIが実装されていれば他のﾌﾟﾗｯﾄﾌｫーﾑでも動くかもしれません(macOS除く)*
 

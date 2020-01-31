@@ -11,7 +11,7 @@ namespace TonNurako.XImageFormat.Test {
         public string DataDir =>
             Path.GetFullPath(
                 Path.Combine(
-                    Path.GetDirectoryName(new Uri(this.GetType().Assembly.CodeBase).LocalPath), "../../../ReaderTest/Data"));
+                    Path.GetDirectoryName(new Uri(this.GetType().Assembly.CodeBase).LocalPath), "../../../../ReaderTest/Data"));
 
         public string Gacha(string fn) {
             return Path.Combine(DataDir, fn);
